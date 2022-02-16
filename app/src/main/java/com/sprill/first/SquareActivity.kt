@@ -6,43 +6,42 @@ import android.util.Log
 import android.widget.TextView
 
 class SquareActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_square)
-        val i = intent
         var count: Int = 0
         val squareText = findViewById<TextView>(R.id.squareText)
+        if (intent != null)
+            count = intent.getIntExtra(MainActivity.BUNDLE_KEY_COUNT, 1)
 
-        if (i != null)
-            count = i.getIntExtra("count", 1)
-        count *= count
-        squareText.setText(count.toString())
+        squareText.text = (count * count).toString()
 
         Log.d(this.localClassName, "Created")
     }
 
     override fun onStart() {
-        super.onStart()
         Log.d(this.localClassName, "Started")
+        super.onStart()
     }
 
     override fun onPause() {
-        super.onPause()
         Log.d(this.localClassName, "Paused")
+        super.onPause()
     }
 
     override fun onResume() {
-        super.onResume()
         Log.d(this.localClassName, "Resumed")
+        super.onResume()
     }
 
     override fun onDestroy() {
-        super.onDestroy()
         Log.d(this.localClassName, "Destroyed")
+        super.onDestroy()
     }
 
     override fun onStop() {
-        super.onStop()
         Log.d(this.localClassName, "Stopped")
+        super.onStop()
     }
 }
