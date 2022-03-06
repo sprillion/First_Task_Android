@@ -79,4 +79,7 @@ class MainActivity : AppCompatActivity() {
         Log.d(this.localClassName, "Stopped")
         super.onStop()
     }
+    /*
+    ООООООООООЧЕНЬ МНОГО КОДА
+     */
 }
